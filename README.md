@@ -1,3 +1,9 @@
+# Magic-Match 
+Website Link - https://shimmering-tartufo-43faab.netlify.app/
+
+Magic Match is a puzzle game where you've to select the similar images.
+There is a counter which will tell how many turns you took to complete the game.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
