@@ -50,7 +50,8 @@ const buttonVariants = {
     boxShadow: "0px 0px 8px rgb(255, 255, 255)",
     transition: {
       duration: 0.3,
-      yoyo: Infinity,
+      repeat: Infinity,
+      repeatType: "reverse",
     },
   },
 }
@@ -113,7 +114,21 @@ const Game = () => {
         initial="hidden"
         animate="visible"
       >
-        <h1>Magic Match</h1>
+        <motion.h1
+          whileHover={{
+            scale: 1.1,
+            originX: 0,
+            originY: 0,
+            color: "#f8e112",
+          }}
+          transition={{
+            type: "spring",
+            stiffness: 300,
+          }}
+          style={{ cursor: "pointer" }}
+        >
+          Magic Match
+        </motion.h1>
         <motion.button
           style={{ margin: "0 auto" }}
           variants={buttonVariants}
