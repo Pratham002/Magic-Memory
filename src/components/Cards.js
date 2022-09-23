@@ -1,20 +1,24 @@
-import React from 'react'
-import "./SingleCard.css";
+import React from "react"
+import "./Card.css"
 
-function Cards({card, onChoice, flipped, disable}) {
-
-    function handleClick() {
-        if(!disable) {
-            onChoice(card);
-        }
+const Cards = ({ card, onChoice, flipped, disable }) => {
+  const handleClick = () => {
+    if (!disable) {
+      onChoice(card)
     }
+  }
 
   return (
     <div className="card">
-        <div className={flipped ? "flipped" : ""} >
-            <img className="front" src={card.src} alt="front img" />
-            <img className="back" onClick={handleClick} src="/img/cover.png" alt="back img" />
-        </div>
+      <div className={flipped ? "flipped" : ""}>
+        <img className="front" src={card.src} alt="front img" />
+        <img
+          className="back"
+          onClick={handleClick}
+          src="/img/cover.png"
+          alt="back img"
+        />
+      </div>
     </div>
   )
 }
