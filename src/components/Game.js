@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import Cards from "./Cards"
 import "./Game.css"
-import { AnimatePresence, motion } from "framer-motion/dist/framer-motion"
+import { motion } from "framer-motion"
 
 const cardsImg = [
   { src: "../img/helmet-1.png", matched: false },
@@ -38,8 +38,19 @@ const childVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      // delay: 0.5,
       duration: 0.5,
+    },
+  },
+}
+
+const buttonVariants = {
+  hover: {
+    scale: 1.1,
+    textShadow: "0px 0px 8px rgb(255, 255, 255)",
+    boxShadow: "0px 0px 8px rgb(255, 255, 255)",
+    transition: {
+      duration: 0.3,
+      yoyo: Infinity,
     },
   },
 }
@@ -103,9 +114,16 @@ const Game = () => {
         animate="visible"
       >
         <h1>Magic Match</h1>
-        <button style={{ margin: "0 auto" }} onClick={shuffleCards}>
+        <motion.button
+          style={{ margin: "0 auto" }}
+          variants={buttonVariants}
+          whileHover="hover"
+          onClick={shuffleCards}
+          exit={{ y: "-100vh", opacity: 0 }}
+          id="play-button"
+        >
           New Game
-        </button>
+        </motion.button>
         <motion.div className="card-grid" variants={childVariants}>
           {cards.map((card) => (
             <Cards
