@@ -59,6 +59,7 @@ const buttonVariants = {
 const Game = () => {
   const [cards, setCards] = useState([])
   const [turns, setTurns] = useState(0)
+  const [score, setScore] = useState(0)
   const [choiceOne, setChoiceOne] = useState(null)
   const [choiceTwo, setChoiceTwo] = useState(null)
   const [disable, setDisable] = useState(false)
@@ -72,6 +73,7 @@ const Game = () => {
     setChoiceTwo(null)
     setCards(shuffledCards)
     setTurns(0)
+    setScore(0)
   }
 
   useEffect(() => {
@@ -82,6 +84,7 @@ const Game = () => {
     if (choiceOne && choiceTwo) {
       setDisable(true)
       if (choiceOne.src === choiceTwo.src) {
+        setScore((prevScore) => prevScore + 1)
         setCards((prevState) => {
           return prevState.map((card) => {
             if (card.src === choiceOne.src) {
@@ -127,16 +130,6 @@ const Game = () => {
         >
           Magic Match
         </motion.h1>
-        <motion.button
-          style={{ margin: "0 auto" }}
-          variants={buttonVariants}
-          whileHover="hover"
-          onClick={shuffleCards}
-          exit={{ y: "-100vh", opacity: 0 }}
-          id="play-button"
-        >
-          New Game
-        </motion.button>
         <motion.div className="card-grid" variants={childVariants}>
           {cards.map((card) => (
             <Cards
@@ -148,7 +141,23 @@ const Game = () => {
             />
           ))}
         </motion.div>
-        <motion.p variants={childVariants}>Turns : {turns}</motion.p>
+        <motion.div className="bottom-div" variants={childVariants}>
+          <div className="flips">
+            Flips : <span>{turns}</span>
+          </div>
+          <div className="score">
+            Score : <span>{score}</span>
+          </div>
+          <motion.button
+            variants={buttonVariants}
+            whileHover="hover"
+            onClick={shuffleCards}
+            exit={{ y: "-100vh", opacity: 0 }}
+            id="play-button"
+          >
+            Replay
+          </motion.button>
+        </motion.div>
       </motion.div>
     </>
   )

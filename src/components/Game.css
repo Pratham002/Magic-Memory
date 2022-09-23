@@ -20,3 +20,28 @@ button:hover {
     grid-gap: 15px;
     margin-top: 20px;
 }
+
+.bottom-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.flips .score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flips span {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #c23866;
+}
+
+.score span {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #C3FF99;
+}
