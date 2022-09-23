@@ -1,5 +1,6 @@
 import React from "react"
 import "./Card.css"
+import { motion } from "framer-motion"
 
 const Cards = ({ card, onChoice, flipped, disable }) => {
   const handleClick = () => {
@@ -9,7 +10,12 @@ const Cards = ({ card, onChoice, flipped, disable }) => {
   }
 
   return (
-    <div className="card">
+    <motion.div
+      className="card"
+      whileHover={{
+        scale: 0.95,
+      }}
+    >
       <div className={flipped ? "flipped" : ""}>
         <img className="front" src={card.src} alt="front img" />
         <img
@@ -19,7 +25,7 @@ const Cards = ({ card, onChoice, flipped, disable }) => {
           alt="back img"
         />
       </div>
-    </div>
+    </motion.div>
   )
 }
 

@@ -99,11 +99,11 @@ const Game = () => {
   const resetValues = () => {
     setChoiceOne(null)
     setChoiceTwo(null)
-    setTurns((prev) => prev + 1)
     setDisable(false)
   }
 
   const makingChoice = (card) => {
+    setTurns((prev) => prev + 1)
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
   }
 
@@ -117,8 +117,6 @@ const Game = () => {
         <motion.h1
           whileHover={{
             scale: 1.1,
-            originX: 0,
-            originY: 0,
             color: "#f8e112",
           }}
           transition={{
