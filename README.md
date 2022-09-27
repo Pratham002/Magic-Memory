@@ -1,5 +1,6 @@
 # Magic-Match 
 Using React & Framer Motion
+{Refresh the website to see the beautiful animation}
 ## Website Link - https://snazzy-donut-06fed1.netlify.app/
 
 Magic Match is a puzzle game where you've to select the similar images.
